@@ -4,6 +4,46 @@ body{
 	
 }
 
+.front{
+	
+	height: 200px; 
+	width: 200px; 
+	transition: all 0.5s ease-out; 
+	-webkit-transition: all 0.5s ease-out; 
+	backface-visibility: hidden; 
+	transform: rotateY(0deg);
+
+}
+
+.back{
+	transform: rotateY(-180deg); 
+	height: 200px; 
+	width: 200px; 
+	transform-style: preserve-3d; 
+	position: absolute; 
+	transition: all 0.5s 
+	ease-out; 
+	-webkit-transition: all 0.5s 
+	ease-out; 
+	backface-visibility: hidden;
+	border-radius: 50%;
+
+}
+
+.card{
+	display: none;
+	width: 200px; 
+	height: 200px; 
+	position: relative;
+	 margin-left: auto;
+    margin-right: auto;
+     display: inline-block;
+
+}
+.card:hover { 
+    border: 1px solid white;
+}
+
 
 h2 {
 	font-family: Papyrus, fantasy;
@@ -19,7 +59,14 @@ h2 {
     vertical-align: middle;
 }
 
-#backgroundImg{
-	visibility: hidden;
-	
+.name{
+
+	font-size: 30px;
+	border: 2px solid black;
+}
+
+.score{
+	font-size: 20px;
+	font-family: arial;
+	color: white;
 }

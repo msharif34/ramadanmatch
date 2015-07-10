@@ -3,69 +3,118 @@
 <head>
 	<title>Ramadan Match</title>
 
-	 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="jquery.flip.js"></script>
+	<script src="script.js"></script>
+	<script src="dist/sweetalert.min.js"></script> 
 
-    <link href="style.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+
+	<link href="style.css" rel="stylesheet">
 </head>
 <body>
 
 
 	<div class="container">
 
-				
-					<div class="col-md-3 text-center" id="player-one">
 
-						</div>
-
-
-
-					<div class="col-md-6 text-center" id="viewport">
-					<div id="backgroundImg"><img src="http://previews.123rf.com/images/maxxxjo/maxxxjo1311/maxxxjo131100188/24146429-Seamless-pattern-stock-vector-used-for-tiling-background-Stock-Vector.jpg" style="height:100px;width:250px;" alt="25"></div>
-					 
-								<h2>Ramadan Match Game</h2>
-									<div id="newport">
-										<form class="form" id="playerOne">
-
-									  <div class="form-group" id="player-one-name">
-									    <label for="exampleInputName2">Player One Name:</label>
-									    <input type="text" class="form-control" placeholder="Enter your name" id="player-info">
-									  </div>
-
-									  <div class="form-group" id='playerTwo'>
-									    <label for="exampleInputEmail2">Player Two Name:</label>
-									    <input type="text" class="form-control" placeholder="Enter your name" id="player-info-two">
-									  </div>
-									  <button id="start-button" type="submit" class="btn btn-primary btn-lg btn-success">Let's Play!</button>
-									</form>
-
-
-										
-
-								</div>		
-					</div>
-
-
-		<div class="row">
-			<div class="col-md-3 text-center" id="player-two" >
-
-			
+		<div class="col-md-2 text-center" id="left-side">
+			<div class="player-one-score">
+				<div class="name"></div>
+				<div class="score"></div>
 			</div>
 		</div>
 
 
 
+		<div class="col-md-8 text-center" id="viewport">
+			<h2>Ramadan Match Game</h2>
+			<div class='error-message'></div>
+			<form class="form" id="playerForm">
+
+				<div class="form-group" id="player-one-name">
+					<label for="exampleInputName2">Player One Name:</label>
+					<input type="text" class="form-control" placeholder="Enter your name" id="player-info">
+				</div>
+
+				<div class="form-group" id='playerTwo'>
+					<label for="exampleInputEmail2">Player Two Name:</label>
+					<input type="text" class="form-control" placeholder="Enter your name" id="player-info-two">
+				</div>
+				<button id="start-button" type="submit" class="btn btn-primary btn-lg btn-success">Let's Play!</button>
+			</form>
+
+			<div class="card" style="perspective: 200px; position: relative;">
+				<div class="front"><img src="images/question.png"></div>
+				<div class="back"><img src="images/charity.jpg"></div>
+			</div>
+
+			<div class="card" style="perspective: 200px; position: relative;">
+				<div class="front"><img src="images/question.png"></div>
+				<div class="back"><img src="images/prayer.jpg"></div>
+			</div>
+
+			<div class="card" style="perspective: 200px; position: relative;">
+				<div class="front"><img src="images/question.png"></div>
+				<div class="back"><img src="images/mosque.jpg"></div>
+			</div>
+
+			<div class="card" style="perspective: 200px; position: relative;">
+				<div class="front"><img src="images/question.png"></div>
+				<div class="back"><img src="images/prayer.jpg"></div>
+			</div>
+
+			<div class="card" style="perspective: 200px; position: relative;">
+				<div class="front"><img src="images/question.png"></div>
+				<div class="back"><img src="images/mosque.jpg"></div>
+			</div>
+
+			<div class="card" style="perspective: 200px; position: relative;">
+				<div class="front"><img src="images/question.png"></div>
+				<div class="back"><img src="images/charity.jpg"></div>
+			</div>
+
+			
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel"></h4>
+					</div>
+					<div class="modal-body" id ="slide-modal">
+
+					</div>
+					<div class="modal-footer">
+					</div>
+				</div>
+			</div>
+		</div>
 
 
 
+		<div class="col-md-2 text-center" id="right-side" >	
+			<div class="player-two-score">
+				<div class="name"></div>
+				<div class="score"></div>
+			</div>
 
-
+		</div>
 
 
 
 	</div>
+
+
+
+
+
+</div>
 
 
 </body>
