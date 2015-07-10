@@ -2,7 +2,6 @@ $(function(){
 	console.log('page ready');
 	//swal({   title: "Error!",   text: "Here's my error message!",   type: "error",   confirmButtonText: "Cool" });
 
-	var error = ('<div class="alert alert-danger" role="alert">Please Enter Both Names.</div>');
 
 			  		 	$(".card").flip({
 						  axis: 'x',
@@ -18,7 +17,7 @@ $(function(){
 		
 
 		console.log('Player two name: ', playerTwoName);
-
+		$('.title').fadeOut('slow');
 
 		if ($('#player-info').val() === '' || $('#player-info-two').val() === ''){
 			swal({   
@@ -33,7 +32,10 @@ $(function(){
 			swal.close();
 			$('.player-one-score .name').html(playerOneName);
 			$('.player-two-score .name').html(playerTwoName);
-			$('#playerForm').fadeOut();
+			$('#playerForm').fadeOut('slow',function(){
+				$('.game-wrap, .player-one-score, .player-two-score').fadeIn('slow');
+
+			});
 
 		}
 	});
@@ -44,12 +46,23 @@ $(function(){
 
 
 	$('.card').on('click', function(){
-		// if ($('.selected').find('.back img').attr('src') === $(this).find('.back img').attr('src') ){
-		// 	console.log('its a match');
-		// }
+		var snd = new Audio("sounds/blop.wav"); // buffers automatically when created
+		snd.play();
 		var previous = $('.selected');
 		var current = $(this);
-		
+
+		if ($('#player-info').val() === '' || $('#player-info-two').val() === ''){
+			swal({   
+				title: "Error!",   
+				text: "Please enter both player names to start game!",   
+				type: "error",   
+				confirmButtonText: "Try Again" 
+
+			});
+
+
+		}
+
 		if($(this).hasClass('selected')){
 			$(this).removeClass('selected');
 			$(this).flip(false);
@@ -61,18 +74,21 @@ $(function(){
 				setTimeout(function(){
 					if(previous.find('.back img').attr('src') == current.find('.back img').attr('src')){
 						//correct match
+						var snd = new Audio("sounds/success.wav"); // buffers automatically when created
+							snd.play();
 						$('.selected').removeClass('selected').fadeOut();
 						counter +=2;
 						score[turn]+=2;
 						console.log(counter);
-
 						$('.player-one-score .score').html(score[0])
 						$('.player-two-score .score').html(score[1])
+						$('.score').addClass('animated flash');
+							
 						
 						
 
 
-						if (counter === 6){
+						if (counter === 10){
 							
 							//reset cards
 							$('.card').flip(false);
@@ -81,6 +97,8 @@ $(function(){
 							//reset score
 							$('.player-one-score .score').html(0);
 							$('.player-two-score .score').html(0);
+							var snd = new Audio("sounds/ta-da.wav"); // buffers automatically when created
+							snd.play();
 							
 									if (score[0] > score[1]){
 										swal({   
@@ -109,6 +127,8 @@ $(function(){
 					}else{
 						//wrong match
 						$('.selected').flip(false);
+						var snd = new Audio("sounds/error.wav"); // buffers automatically when created
+							snd.play();
 						$('.selected').removeClass('selected')
 						turn = Math.abs(turn - 1);
 						if (turn === 0){

@@ -1,6 +1,6 @@
 body{
 
-	background-color: #FFE800;
+	background-image: url("game-background.jpg");
 	
 }
 
@@ -32,8 +32,8 @@ body{
 
 .card{
 	display: none;
-	width: 200px; 
-	height: 200px; 
+	width: 145px; 
+	height: 145px; 
 	position: relative;
 	 margin-left: auto;
     margin-right: auto;
@@ -41,32 +41,42 @@ body{
 
 }
 .card:hover { 
-    border: 1px solid white;
+    border: 1px solid red;
 }
 
-
-h2 {
-	font-family: Papyrus, fantasy;
+.title{
+	margin: 0 auto;
+}
+/*h1 {
+	font-family: 'Fjalla One', sans-serif;
 	font-size: 24px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
 	line-height: 26.3999996185303px;
-}
+	border: 2px solid orange;
+	padding: 100px;
+}*/
 
-.vertical-center-row {
-    display: table-cell;
-    vertical-align: middle;
-}
 
 .name{
 
 	font-size: 30px;
 	border: 2px solid black;
+	background-color: orange;
 }
 
 .score{
-	font-size: 20px;
+	font-size: 40px;
 	font-family: arial;
-	color: white;
+	color: red;
+	flash: true;
+
+}
+.game-wrap{
+	display: none;
+}
+
+.player-one-score, .player-two-score{
+	display: none;
 }
